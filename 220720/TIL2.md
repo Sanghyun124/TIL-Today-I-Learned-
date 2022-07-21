@@ -141,3 +141,128 @@ a,b,*rest=numbers # 1 2 [3 4 5]
 
 ### 가변 키워드 인자(**kwargs)
 - 몇 개의 키워드 인자를 받을 지 모르는 함수를 정의할 때 유용
+- **kwargs는 딕셔너리로 묶여 처리되며, parameter에 **을 붙여 표현함!
+
+```python
+def family(**kwargs):
+    for key, value in kwargs.items():
+        print(key, ':', value)
+family(father='아부지',mother='어무니', baby='아기')
+'''
+father : 아부지
+mother : 어무니
+baby : 아기
+'''
+```
+
+## Python의 범위
+함수는 코드 내부에 local scope를 생성하며 그 외의 공간인 global scope로 구분
+
+- scope
+   - global scope : 코드 어디에서든 참조할 수 있는 공간
+   - local scope : 함수가 만든 scope 함수 내부에서만 참조 가능
+- variable
+   - global variable : global scope에 정의된 변수
+   - local variable : local scope에 정의된 변수
+
+### 이름 검색 규칙
+#### LEGB Rule
+- local scope : 지역범위
+- Enclosed scope : 지역 범위 한단계 위 범위
+- Global scope : 최상단에 위치한 범위
+- Built-in scope : 모든것을 담고있는 범위
+
+### global문
+현재 코드 블록 전체에 적용되며, 나열된 식별자가 global variable임을 나타냄
+- global에 나열된 이름은 같은 코드 블록에서 global 앞에 등장할 수 없음
+- global에 나열된 이름은 parameter, for루프 대상, 클래스/함수 정의 등으로 정의도지 않아야 함!
+
+```python
+#함수 내부에서 글로벌 변수 변경하기
+a = 10
+def func1():
+    global a
+    a=3
+print(a)#10
+func1()
+print(a)#3
+
+#global 주의사항1
+a = 10
+def func1():
+    print(a)#global a 선언 전에 사용
+    global a
+    a=3
+print(3)
+func1()
+print(a)
+# SyntaxError: name 'a' is used prior to global declaration
+
+#global 주의사항2
+a = 10
+def func1(a):
+    global a # parameter에 global사용 불가
+    a=3
+print(a)
+func1(3)
+print(a)
+# SyntaxError: name 'a' is parameter and global
+```
+
+### nonlocal
+- global을 제외하고 가장 가까운 (둘러싸고있는) scope의 변수를 연결하도록 함
+    - nonlocal에 나열된 이름은 같은 코드 블록에서 nonlocas 앞에 등장할 수 없음
+    - nonlocal에 나열된 이름은 parameter, for루프 대상, 클래스/함수 정의 등으로 정의도지 않아야 함!
+- global과는 달리 이미 존재하는 이름과의 연결만 가능함
+
+```python
+#nonlocal 예시
+x = 0
+def func1():
+    x = 1
+    def func2():
+        nonlocal x
+        x = 2
+    func2()
+    print(x) # 2
+func1()
+print(x) # 0
+```
+
+## 함수 응용
+- filter(함수,데이터구조) : 순회 가능한 데이터구조의 모든 요소에 함수를 적용하고, 그 결과가 True인 것들을 filter object로 반환
+
+```python
+def odd(n):
+    return n%2
+numbers=[1,2,3]
+result=filter(odd,numbers)
+print(result,type(result))#<filter object at 0x000001Fb4B217F><class 'filter'>
+print(list(result))#[1, 3]
+```
+
+- zip(*iterables) : 복수의 iterable을 모아 튜플을 원소로 하는 zip object를 반환
+
+```python
+girls=['jane','ashley']
+boys=['justin','eric']
+pair=zip(girls,boys)
+print(pair,type(pair))#<zip object at 0x000001Fb4B217F><class 'zip'>
+print(list(pair))#[('jane','justin'),('ashley','eric')]
+```
+
+# 모듈
+- 모듈 : 다양한 기능을 하나의 파일로
+- 패키지 : 다양한 파일을 하나의 폴더로
+- 라이브러리 : 다양한 패키지를 하나의 묶음으로
+- pip : 이것을 관리하는 관리자
+
+## 모듈과 패키지 호출
+```python
+import module
+from module import var,function,Class
+from module import *#전부 가져오는것
+
+from package import module
+from package.module import var, function, Class
+```
