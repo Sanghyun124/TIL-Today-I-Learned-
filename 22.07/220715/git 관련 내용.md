@@ -25,5 +25,3 @@ git push origin master : 내가 지금까지 커밋한 내용을 원격 저장�
 git clone "깃허브 레포지토리 url" : 해당 원격 저장소에 있는 파일들 현재 작업 영역으로 복사
 
 commit 하기 전에 꼭 pull을 통해서 원격 레포지토리와 로컬 레포지토리의 정보를 최신화해야 함!!!!
-
-git pull origin master : 원격 저장소의 내용 현재 로컬 저장소로 가져와서 최신화하기
