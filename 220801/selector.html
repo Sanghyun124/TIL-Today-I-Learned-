@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자</title>
+    <!--.은 class를 설정한다!-->
+    <!--#은 id를 설정한다!-->
+    <style>
+        .a{
+            width: 100px;
+            height : 100px;
+            background-color: blue;
+
+        }
+
+        #b{
+            width: 100px;
+            height : 100px;
+            background-color: red;
+        }
+
+        ul > li{
+            color:orange;
+        }
+
+        .c div{
+            color:green;
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="a">
+        <div></div>
+        <div></div>
+    </div>
+    <div id="b">
+    </div>
+    <ul>
+        <li>서울</li>
+        <li>대구</li>
+        <li>광주</li>
+    </ul>
+    <div class="c">
+        <div>
+            나는 자식이다.
+            <div>
+                나는 자손이다.
+                <div>
+                    나는 손자의 자식이다
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
