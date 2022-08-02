@@ -1,0 +1,52 @@
+.row{
+    width: 900px;
+    height: 100px;
+    margin:0px;
+    padding:0px;
+    font-size: 0px;
+}
+
+.row > div{
+    width: 100px;
+    height: 100px;
+    display : inline-block;
+    border:1px solid black
+}
+
+.row:nth-of-type(2n) > div:nth-of-type(2n){
+    background-color: white;
+}
+
+.row:nth-of-type(2n) > div:nth-of-type(2n-1){
+    background-color: black;
+}
+
+.row:nth-of-type(2n-1) > div:nth-of-type(2n){
+    background-color: black;
+}
+
+.row:nth-of-type(2n-1) > div:nth-of-type(2n-1){
+    background-color: white;
+}
+
+.pawn{
+    background-size: 100px 100px;
+    background-image: url("black_pawn.png");
+    
+}
+
+.queen{
+    background-size: 100px 100px;
+    background-image: url("white_queen.png");
+}
+
+.rook{
+    background-size: 100px 100px;
+    background-image: url("white_rook.png");
+    
+}
+
+.king{
+    background-size: 100px 100px;
+    background-image: url("white_king.png");
+}
