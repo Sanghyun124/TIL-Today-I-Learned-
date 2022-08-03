@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .left{
+            float:left;
+            margin: 20px;
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+        }
+
+        .right{
+            float:right;
+            margin: 20px;
+            background-color: blue;
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+        }
+
+        .wrap::after{/*요소 뒤에 뭔가 있는것(가상요소)처럼 만든다*/
+            content:"";
+            display:block;
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="left"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil magnam, non enim ratione laboriosam porro saepe hic maxime repellendus voluptates. Vel, nesciunt optio. Sapiente veritatis soluta tenetur consequuntur tempore reiciendis!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil magnam, non enim ratione laboriosam porro saepe hic maxime repellendus voluptates. Vel, nesciunt optio. Sapiente veritatis soluta tenetur consequuntur tempore reiciendis!
+        </p>
+</body>
+</html>

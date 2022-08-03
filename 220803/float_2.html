@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 960px;
+            margin:0 auto;
+        }
+
+        section{
+            float:left;
+            width: 760px;
+        }
+
+        aside{
+            float:left;
+            width: 200px;
+        }
+
+        main::after{
+            content:"";
+            clear:both;
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Header</h1>
+    </header>
+    <nav>
+        <h1>Navigation bar</h1>
+    </nav>
+    <main>
+        <section>
+            <h1>section</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non sed ad sapiente numquam, minima minus magnam quos cumque vero! Porro explicabo officiis itaque similique, maxime dicta, ad veniam molestias officia temporibus iure nesciunt repellendus consequatur reprehenderit praesentium in dolorem sed provident ab ipsum, aliquam quisquam soluta! Excepturi ratione vero enim.</p>
+        </section>
+        <aside>
+            <h1>Aside</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate est deserunt impedit, dolores voluptatibus quaerat dicta placeat omnis ab! Voluptatibus in cupiditate quia sequi, veniam illo velit praesentium laudantium mollitia eum dignissimos impedit quibusdam modi dolores autem aliquid non culpa placeat iste ullam sunt earum id? Voluptatibus cupiditate animi repellat?</p>
+        </aside>
+    </main>
+    <footer>
+        <h1>Footer</h1>
+    </footer>
+</body>
+</html>
