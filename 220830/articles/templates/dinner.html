@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{pick}}은 {{pick|length}}글자</h1>
+    <h1>{{foods|join:', '}}</h1>
+
+    <h1>메뉴판</h1>
+    <ul>
+        {% for food in foods %}
+            <li>{{food}}</li>
+        {%endfor%}
+    </ul>
+
+    <h1>{{numbers}}</h1>
+
+    {% if numbers == 10 %}
+        <h1>숫자는 10이다</h1>
+    {% elif numbers > 10 %}
+        <h1>숫자는 10보다 크다</h1>
+    {% else%}
+        <h1>그 외의 숫자</h1>
+    {% endif %}
+
+    <a href="/articles/index/">홈으로</a>
+</body>
+</html>
