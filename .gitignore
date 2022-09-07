@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 # Created by https://www.toptal.com/developers/gitignore/api/python,django
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,django
+=======
+# Created by https://www.toptal.com/developers/gitignore/api/django,python
+# Edit at https://www.toptal.com/developers/gitignore?templates=django,python
+>>>>>>> 02c3f2baae966a6399b0382e103490587a90e273
 
 ### Django ###
 *.log
@@ -253,4 +258,8 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 
+<<<<<<< HEAD
 # End of https://www.toptal.com/developers/gitignore/api/python,django
+=======
+# End of https://www.toptal.com/developers/gitignore/api/django,python
+>>>>>>> 02c3f2baae966a6399b0382e103490587a90e273
