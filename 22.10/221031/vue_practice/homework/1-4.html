@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>첫 번째 입력 : {{ myMessage }}</h1>
+        <input @input="onInputChange" type="text">
+        <h1>두 번째 입력 : {{ myMessage2 }}</h1>
+        <input @input="onInputChange2" type="text">
+        <h1>합산 입력 : {{ myMessage }} {{ myMessage2 }}</h1>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                myMessage: '',
+                myMessage2: '',
+            },
+            methods: {
+                onInputChange: function (event) {
+                    this.myMessage = event.target.value
+                },
+                onInputChange2: function (event) {
+                    this.myMessage2 = event.target.value
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>
