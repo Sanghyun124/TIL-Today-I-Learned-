@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <h1>회문 검사기</h1>
+    <div id="app">
+      <input type="text" v-model="message">
+      <button @click="onClickCheck">확인하기</button>
+    </div>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        message: ''
+      },
+      methods: {
+        onClickCheck: function (event) {
+          checked = this.message
+          if (checked != '') {
+            flag = 0
+            size = checked.length
+            for (let i = 0; i < size / 2; i++) {
+              if (checked[i] != checked[size - i - 1]) {
+                flag = 1
+              }
+            }
+            if (flag) {
+              alert('회문이 아닙니다!')
+            }
+            else {
+              alert('회문입니다.')
+            }
+          } else {
+            alert('입력값이 없습니다.')
+          }
+
+        },
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .done{
+      text-decoration: line-through;
+      color: lightgray;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h1>Todo List</h1>
+    <div>
+      <input type="text" v-model="todo">
+      <button @click="onClickAddTodo">+</button>
+    </div>
+    <div>
+      <ul>
+        <li v-for="todo in todos" :key="todo.index">
+          <div :class="{done: todo.done}"><input type="checkbox" v-model="todo.done">{{ todo['todo'] }}</div>
+        </li>
+      </ul>
+    </div>
+    <button @click="onClickDelete">완료 목록 삭제</button>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        todo: '',
+        todos:[],
+        todo_num:0
+      },
+      methods: {
+        onClickAddTodo: function () {
+          if (this.todo === '') {
+            alert('내용을 입력해 주세요!')
+          }
+          else {
+            this.todos.push({
+              index:this.todo_num,
+              todo:this.todo,
+              done:false
+            })
+            this.todo_num+=1
+            console.log(this.todos);
+          }
+        },
+        onClickDelete:function(){
+          const filtered = this.todos.filter((todo)=>{
+            return !todo.done
+          })
+          this.todos=filtered
+      },
+    }
+  })
+  </script>
+</body>
+
+</html>
