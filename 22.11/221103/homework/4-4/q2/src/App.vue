@@ -2,14 +2,26 @@
   <div id="app">
     <h1>캐릭터 진화 단계 가이드</h1>
     <div>
-      <button @click="clickHome">Home</button>
-      <button @click="clickStart">Start</button>
+      <button class="btn" @click="clickHome">Home</button>
+      <button class="btn" @click="clickStart">Start</button>
     </div>
-    <ssafyHome v-if="isStarted===false"/>
-    <noColor v-else-if="isStarted===true&page===1"/>
-    <ssafLing v-else-if="isStarted===true&page===2"/>
-    <ssafLeaf v-else-if="isStarted===true&page===3"/>
-    <ssaFlower v-else-if="isStarted===true&page===4"/>
+    <div class="container row m-auto">
+      <ssafyHome v-if="isStarted===false"/>
+      <div v-else-if="isStarted===true" class="d-flex shadow">
+      <div class="col-3 m-auto">
+        <img @click="clickLeft" class="arrow" src="./assets/left.png" alt="">
+      </div>
+      <div class="col-6">
+        <noColor v-if="page===1"/>
+        <ssafLing v-else-if="page===2"/>
+        <ssafLeaf v-else-if="page===3"/>
+        <ssaFlower v-else-if="page===4"/>
+      </div>
+      <div class="col-3 m-auto">
+        <img @click="clickRight" class="arrow" src="./assets/right.png" alt="">
+      </div>
+      </div>
+    </div>
   
 
   </div>
@@ -55,6 +67,8 @@ export default {
         alert('Home으로 돌아갑니다!')
         this.page=1
         this.isStarted=false
+      } else{
+        this.page++
       }
     }
   }
@@ -63,11 +77,31 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Noto Sans KR",Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
+
+  .main{
+    width:200px;
+    height:200px;
+  }
+
+  .arrow{
+    width:50px;
+    height:50px;
+  }
+
+  .shadow{
+    height:600px;
+  }
+
+  .btn{
+    border: 1px solid rgb(197, 152, 5);
+    margin:10px;
+  }
+
 </style>
